@@ -1,0 +1,14 @@
+{
+  "name": "platzi-social",
+  "version": "1.0.0",
+  "description": "Platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Carlos Gutierrez",
+  "license": "MIT"
+}
