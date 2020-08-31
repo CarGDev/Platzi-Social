@@ -10,5 +10,13 @@
     "nodejs"
   ],
   "author": "Carlos Gutierrez",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarGDev/Platzi-Social.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CarGDev/Platzi-Social/issues"
+  },
+  "homepage": "https://github.com/CarGDev/Platzi-Social#readme"
 }
