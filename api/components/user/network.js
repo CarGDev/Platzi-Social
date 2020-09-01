@@ -12,7 +12,7 @@ router.post('/', upsert)
 router.put('/', upsert)
 
 // Internal Functions
-function list(req, res) {
+function list (req, res) {
   Controller.list()
     .then((lista) => {
       response.success(req, res, lista, 200)
@@ -22,7 +22,7 @@ function list(req, res) {
     })
 }
 
-function get(req, res) {
+function get (req, res) {
   Controller.get(req.params.id)
     .then((user) => {
       response.success(req, res, user, 200)
@@ -32,7 +32,7 @@ function get(req, res) {
     })
 }
 
-function upsert(req, res) {
+function upsert (req, res) {
   Controller.upsert(req.body)
     .then((user) => {
       response.success(req, res, user, 201)
