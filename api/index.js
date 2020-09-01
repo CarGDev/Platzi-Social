@@ -11,9 +11,11 @@ const app = express()
 app.use(bodyParser.json())
 
 const swaggerDoc = require('./swagger.json')
+const auth = require('./components/auth/network')
 // ROUTER
 
 app.use('/api/user', user)
+app.use('/api/auth', auth)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 
 app.listen(config.api.port, () => {

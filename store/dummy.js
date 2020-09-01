@@ -1,11 +1,12 @@
 const db = {
   'user': [{
-    id: '1', name: 'Carlos'
+    id: '1', 
+    name: 'Carlos'
   }],
 }
 
 async function list (tabla) {
-  return db[tabla]
+  return db[tabla] || []
 }
 
 async function get (tabla, id) {
@@ -14,16 +15,29 @@ async function get (tabla, id) {
 }
 
 async function upsert (tabla, data) {
-  db[collection].push(data)
+  if (!db[tabla]) {
+    db[tabla] = []
+  }
+  db[tabla].push(data)
+
+  console.log(db)
 }
 
 async function remove (tabla, id) {
   return true
 }
 
+async function query (tabla, q) {
+  const col = await list(tabla)
+  const keys = Object.keys(q)
+  const key = keys[0]
+  return col.filter(item => item[keys[0]] === q[key])[0] || null
+}
+
 module.exports = {
   list,
   get,
   upsert,
-  remove
+  remove,
+  query
 }

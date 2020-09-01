@@ -1,4 +1,4 @@
-const auth = require('.')
+const TABLA = 'auth'
 
 module.exports = function (injectedStore) {
   let store = injectedStore
@@ -6,9 +6,14 @@ module.exports = function (injectedStore) {
     store = require('../../../store/dummy')
   }
 
+  async function login (username, password) {
+    const data = await store.query(TABLA, { username: username })
+    return data
+  }
+
   function upsert (data) {
     const authData = {
-      id: data.id,
+      id: data.id
     }
 
     if (data.username) {
@@ -18,5 +23,12 @@ module.exports = function (injectedStore) {
     if (data.password) {
       authData.password = data.password
     }
+
+    return store.upsert(TABLA, authData)
+  }
+
+  return {
+    upsert,
+    login
   }
 }
