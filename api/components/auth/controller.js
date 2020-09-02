@@ -15,7 +15,7 @@ module.exports = function (injectedStore) {
       .then(areEquals => {
         if (areEquals === true) {
           // token
-          return auth.sign(data)
+          return auth.sign(JSON.parse(JSON.stringify(data)))
         } else {
           throw new Error('informacion invalida')
         }
