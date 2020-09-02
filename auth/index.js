@@ -16,6 +16,9 @@ const check = {
     const decoded = decodeHeader(req)
     // comprobation if is the user or not
     console.log(decoded)
+    if (decoded.id !== owner) {
+      throw new Error('No tienes permisos de autenticacion')
+    }
   }
 }
 
