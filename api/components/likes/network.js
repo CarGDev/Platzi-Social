@@ -6,9 +6,8 @@ const Controller = require('./index')
 const router = express.Router()
 
 // Routes
+router.get('/:id/user', secure('owner'), postsLiked)
 router.get('/', list)
-router.get('/like', secure('logged'), postsLiked)
-router.get('/:id/like', secure('logged'), postLikers)
 router.post('/:id/like', secure('owner'), postLikers)
 
 // Functions
@@ -20,25 +19,17 @@ function list (req, res, next) {
     .catch(next)
 }
 
-function like (req, res, next) {
-  //
-    .then (data => {
-      response.success(req, res, data, 200)
-    })
-    .catch(next)
-}
-
 function postsLiked (req, res, next) {
-  //
-    .then (data => {
+  Controller.postsLiked(req.params.id)
+    .then(data => {
       response.success(req, res, data, 200)
     })
     .catch(next)
 }
 
 function postLikers (req, res, next) {
-  //
-    .then (data => {
+  Controller.postLikers(req.body, req.params.id)
+    .then(data => {
       response.success(req, res, data, 200)
     })
     .catch(next)

@@ -5,7 +5,7 @@ module.exports = function checkAuth (action) {
     switch (action) {
       case 'owner':
         // const owner = req.body.id
-        auth.check.own(req, req.body.user)
+        auth.check.own(req, req.params.id)
         next()
         break
       case 'logged':

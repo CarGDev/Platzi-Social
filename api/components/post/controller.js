@@ -1,5 +1,6 @@
 const { nanoid } = require('nanoid')
 const TABLA = 'post'
+const ID = 'id'
 
 module.exports = function (injectedStore) {
   let store = injectedStore
@@ -12,7 +13,7 @@ module.exports = function (injectedStore) {
   }
 
   function getPost (user) {
-    return store.get(TABLA, user)
+    return store.get(TABLA, user, ID)
   }
 
   async function upsert (body) {
