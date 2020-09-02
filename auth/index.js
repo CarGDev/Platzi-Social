@@ -19,6 +19,9 @@ const check = {
     if (decoded.id !== owner) {
       throw error('No tienes permisos de autenticacion', 401)
     }
+  },
+  logged: function (req, owner) {
+    const decoded = decodeHeader(req)
   }
 }
 
