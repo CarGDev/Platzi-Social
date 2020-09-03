@@ -7,8 +7,10 @@
     "MYSQL_PASS": "@mysqlpass",
     "MYSQL_DB": "@mysqldb",
     "JWT_SECRET": "@jwtsecret",
-    "MYSQL_SRV_HOST": "@mysqlsrvhost"
-
+    "MYSQL_SRV_HOST": "@mysqlsrvhost",
+    "REDIS_HOST": "@redishost",
+    "REDIS_PORT": "@redisport",
+    "REDIS_PASS": "@redispass"
   },
   "builds": [
     {
