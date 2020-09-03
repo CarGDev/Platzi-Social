@@ -106,3 +106,5 @@ dist
 #Archivo Visual Code
 .vscode/
 .vercel
+secrets.json
+

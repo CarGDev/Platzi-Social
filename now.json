@@ -1,5 +1,15 @@
 {
   "version": 2,
+  "env": {
+    "NODE_ENV": "production",
+    "MYSQL_HOST": "@mysqlhost",
+    "MYSQL_USER": "@mysqluser",
+    "MYSQL_PASS": "@mysqlpass",
+    "MYSQL_DB": "@mysqldb",
+    "JWT_SECRET": "@jwtsecret",
+    "MYSQL_SRV_HOST": "@mysqlsrvhost"
+
+  },
   "builds": [
     {
       "src": "api/index-api.js",
@@ -7,6 +17,10 @@
     },
     {
       "src": "post/index-post.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "mysql/index-mysql.js",
       "use": "@now/node"
     }
   ],
@@ -20,8 +34,12 @@
       "dest": "/api/index-api.js"
     },
     {
+      "src": "/api/likes(.*)",
+      "dest": "/api/index-api.js"
+    },
+    {
       "src": "/api/post(.*)",
-      "dest": "/api/index-post.js"
+      "dest": "/post/index-post.js"
     }
   ]
 }
