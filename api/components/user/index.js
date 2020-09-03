@@ -1,7 +1,6 @@
 // const store = require('../../../store/mysql')
 const config = require('../../../config')
-let store
-let cache
+let store, cache
 if (config.remoteDB === false) {
   store = require('../../../store/remote-mysql')
   cache = require('../../../store/remote-cache')
@@ -11,4 +10,4 @@ if (config.remoteDB === false) {
 }
 const ctrl = require('./controller')
 
-module.exports = ctrl(store)
+module.exports = ctrl(store, cache)
